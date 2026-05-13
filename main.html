@@ -102,3 +102,55 @@
       <p>
         Barnyard battle console themed like a pocket-monster league desk. Pair species, stage mock spars,
         and read type skew before you ship calldata to ChickCombo. Purely client-side — connect wallets only
+        when you paste a real RPC yourself.
+      </p>
+      <p class="pill">Hints: 0x1D99cb8e9c62f38d4375f3c2Db0AA86c7B478552 · 0xe506D840582E64cA633d92317dD18DDEE790247D · 0x4Aa63867906B2370Ebb1068f7955fe579327BcE5</p>
+    </header>
+    <main class="wrap">
+      <section class="grid">
+        <div class="card">
+          <h2>Roster lab</h2>
+          <label for="nick">Trainer callsign</label>
+          <input id="nick" autocomplete="off" value="EdgeCoach" />
+          <label for="species">Hatch species</label>
+          <select id="species"></select>
+          <label for="name">Chick nickname</label>
+          <input id="name" autocomplete="off" value="Peckachu" />
+          <div class="row" style="margin-top:12px;">
+            <button class="primary" id="btnHatch" type="button">Hatch to bench</button>
+            <button class="ghost" id="btnClear" type="button">Clear bench</button>
+          </div>
+          <label for="trainId">Train chick id</label>
+          <input id="trainId" inputmode="numeric" value="1" />
+          <div class="row" style="margin-top:10px;">
+            <button class="ghost" id="btnTrain" type="button">Train (−6 grain)</button>
+            <button class="ghost" id="btnForage" type="button">Forage</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Spar simulator</h2>
+          <label for="left">Attacker slot</label>
+          <select id="left"></select>
+          <label for="right">Defender slot</label>
+          <select id="right"></select>
+          <div class="row" style="margin-top:12px;">
+            <button class="primary" id="btnSpar" type="button">Run spar</button>
+            <button class="ghost" id="btnBlitz" type="button">Blitz 5x</button>
+          </div>
+          <label for="entropy">Entropy hex (optional)</label>
+          <textarea id="entropy" rows="3" placeholder="leave blank for crypto.getRandomValues"></textarea>
+        </div>
+        <div class="card">
+          <h2>League telemetry</h2>
+          <div id="stats" class="log"></div>
+          <div class="row" style="margin-top:10px;">
+            <button class="ghost" id="btnExport" type="button">Export JSON</button>
+            <button class="ghost" id="btnImport" type="button">Import JSON</button>
+            <button class="ghost" id="btnCsv" type="button">Export CSV</button>
+          </div>
+          <textarea id="io" rows="4" placeholder="paste roster JSON here"></textarea>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Battle log</h2>
+        <div id="log" class="log"></div>
