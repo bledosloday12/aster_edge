@@ -50,3 +50,55 @@
     label { display:block; font-size: 12px; color: var(--muted); margin: 8px 0 4px; }
     input, select, button, textarea {
       width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #0f1420;
+      color: var(--ink);
+    }
+    button { cursor: pointer; font-weight: 600; border: 1px solid rgba(247,201,72,0.35); }
+    button.primary { background: linear-gradient(90deg, #f7c948, #ffb703); color:#1a1203; }
+    button.ghost { background: transparent; color: var(--ink); }
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .row > * { flex: 1 1 160px; }
+    .log {
+      min-height: 180px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    table { width:100%; border-collapse: collapse; font-size: 12px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 8px 6px; text-align:left; }
+    th { color: var(--muted); font-weight: 600; }
+    .pill {
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 4px 10px; border-radius: 999px;
+      border:1px solid var(--line); background:#121826; font-size:12px; color: var(--muted);
+    }
+    .elem1{color:var(--fire)} .elem2{color:var(--aqua)} .elem3{color:var(--plant)}
+    .elem4{color:var(--spark)} .elem5{color:var(--frost)} .elem6{color:var(--stone)}
+    .elem7{color:var(--shadow)} .elem8{color:var(--crystal)}
+    canvas#fx { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.35; }
+    .above { position: relative; z-index: 1; }
+    footer { padding: 24px; color: var(--muted); font-size: 12px; text-align:center; border-top:1px solid var(--line); }
+    a { color: var(--accent); }
+    .tip { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 8px 0; }
+    .kbd { font-family: ui-monospace, monospace; border:1px solid var(--line); padding:2px 6px; border-radius:6px; background:#0f1420; }
+    .cols { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; }
+    .pos { color: #7CFFB2; font-weight: 700; }
+    .neg { color: #FF7A7A; font-weight: 700; }
+    .zero { color: var(--muted); }
+    .micro { font-size: 11px; color: var(--muted); }
+    .hero { font-size: 15px; color: var(--ink); margin-top: 6px; }
+    .split { height:1px; background: var(--line); margin: 14px 0; }
+  </style>
+</head>
+<body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="above">
+    <header>
+      <h1>aster_edge</h1>
+      <p>
+        Barnyard battle console themed like a pocket-monster league desk. Pair species, stage mock spars,
+        and read type skew before you ship calldata to ChickCombo. Purely client-side — connect wallets only
