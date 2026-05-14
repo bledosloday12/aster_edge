@@ -570,3 +570,55 @@
     function speciesGene(id){
       const row = SPECIES[id-1];
       const [name,might,guard,tempo,element] = row;
+      return { id, name, might, guard, tempo, element };
+    }
+
+    function nextId(){
+      return state.roster.reduce((m,c)=>Math.max(m,c.id),0)+1;
+    }
+
+    function pushLog(line){
+      const ts = new Date().toISOString().split("T")[1].split(".")[0];
+      state.log.push(`[${ts}] ${line}`);
+      el("log").textContent = state.log.slice(-80).join("\n");
+    }
+
+    function renderStats(){
+      const roster = state.roster;
+      const elems = {};
+      for (const c of roster){ elems[c.element] = (elems[c.element]||0)+1; }
+      const top = roster.slice().sort((a,b)=>b.power-a.power)[0];
+      const txt = [
+        `trainer: ${state.trainer}`,
+        `birds: ${roster.length}`,
+        `elements: ${JSON.stringify(elems)}`,
+        top ? `top: ${top.nick} (${top.power})` : "top: (none)"
+      ].join("\n");
+      el("stats").textContent = txt;
+    }
+
+    function renderSelects(){
+      const opts = state.roster.map(c=>`<option value="${c.id}">#${c.id} ${c.nick}</option>`).join("");
+      el("left").innerHTML = opts || '<option value="">(empty)</option>';
+      el("right").innerHTML = opts || '<option value="">(empty)</option>';
+    }
+
+    function hatch(){
+      state.trainer = el("nick").value.trim() || "EdgeCoach";
+      const sid = parseInt(el("species").value,10);
+      const gene = speciesGene(sid);
+      const nick = el("name").value.trim() || gene.name;
+      const chick = {
+        id: nextId(),
+        species: sid,
+        nick,
+        level: 1,
+        xp: 0,
+        grain: 48,
+        vitality: gene.might + gene.guard + gene.tempo,
+        might: gene.might,
+        guard: gene.guard,
+        tempo: gene.tempo,
+        element: gene.element,
+        evolved: false,
+        streak: 0,
