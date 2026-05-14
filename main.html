@@ -466,3 +466,55 @@
         <h2>Drill reference</h2>
         <p class="tip">Feed cadence <span class="kbd">120s</span> · Train cadence <span class="kbd">240s</span> · Spar cadence <span class="kbd">90s</span> on-chain.</p>
         <div class="split"></div>
+        <p class="tip">Python trainer: run <span class="kbd">python chikn_LIKN.py</span> for REPL commands (<span class="kbd">HELP</span> lists verbs).</p>
+        <p class="tip">Self-test hook: <span class="kbd">set CHIKN_SELFTEST=1</span> then execute module.</p>
+        <p class="tip">Contract: <span class="kbd">ChickCombo.sol</span> — review NatSpec before mainnet deploy.</p>
+        <p class="tip">Telemetry: league banner lines echo shortened hints for ADDRESS immutables.</p>
+        <p class="tip">Safety: disable browser extensions that auto-inject scripts on local files.</p>
+        <p class="tip">Storage: keep JSON backups under version control with private repos only.</p>
+        <p class="tip">QA: after UI edits, reload hard-refresh to bust cached scripts.</p>
+        <p class="tip">Perf: close devtools overlays when recording demo GIFs.</p>
+      </section>
+      <section class="card">
+        <h2>Arena rules & integrator appendix</h2>
+        <p class="micro">Operational gates for humans shipping ChickCombo adjacent tools.</p>
+        <ol>
+          <li class="tip">Gate A: hatch only when species catalog entry is non-zero on-chain.</li>
+          <li class="tip">Gate B: rename collisions are allowed off-chain but discouraged for exports.</li>
+          <li class="tip">Gate C: spar tickets reference attacker/defender ids; never reuse settled ids.</li>
+          <li class="tip">Gate D: league pot accounting uses uint128 — watch sweep bounds in production.</li>
+          <li class="tip">Gate E: donate path is nonReentrant; do not wrap with untrusted hooks.</li>
+          <li class="tip">Gate F: ownership handoff is two-step; verify pending owner before accept.</li>
+          <li class="tip">Gate G: pause is owner-only; publish incident runbooks referencing event CC_PauseSet.</li>
+          <li class="tip">Gate H: ADDRESS_A may grant bonus grain — treat as privileged oracle, not user.</li>
+          <li class="tip">Gate I: immutables are constructor-fixed; rotate by redeploying with new bytecode.</li>
+          <li class="tip">Gate J: receive/fallback reject ETH — users must use donateLeague for value.</li>
+          <li class="tip">Gate K: mint paths are nonReentrant to guard against weird ERC777 reentry (none here).</li>
+          <li class="tip">Gate L: training picks mix SALT_A with prevrandao — casual entropy only.</li>
+          <li class="tip">Gate M: forage mixes SALT_B with block number surrogate in Python, not on-chain.</li>
+          <li class="tip">Gate N: evolve checks duplicate evolution via bool flag — cannot re-evolve.</li>
+          <li class="tip">Gate O: move slots bounded to CC_MOVE_SLOTS — UI should clamp before send.</li>
+          <li class="tip">Gate P: cooldown errors include timestamps — surface them in wallets.</li>
+          <li class="tip">Gate Q: type chart is pure function — mirror in multiple clients for consensus.</li>
+          <li class="tip">Gate R: streak mapping resets on loss — reflect in UI badges.</li>
+          <li class="tip">Gate S: xp curve divisor 220 matches UI syncLevel — keep constants aligned.</li>
+          <li class="tip">Gate T: level cap 72 is public constant — display in marketing footers.</li>
+          <li class="tip">Gate U: species count 49 in this deployment — mint range checks must match.</li>
+          <li class="tip">Gate V: grain spends on feed divide by three — UI can preview vitality bump.</li>
+          <li class="tip">Gate V2: CC_LEAGUE_TAG is a fingerprint constant for integrators.</li>
+          <li class="tip">Gate W: CC_SEASON_ID helps subgraph filters — emit with external metadata.</li>
+          <li class="tip">Gate X: spar settlement grants xp only to winner — no pity XP on-chain.</li>
+          <li class="tip">Gate Y: openSpar mapping grows — consider pruning pattern off-chain archival.</li>
+          <li class="tip">Gate Z: ADDRESS_B/C reserved for future league modules — do not hardwire behavior yet.</li>
+          <li class="tip">Appendix 1: browser sim uses PRNG; chain uses prevrandao — expect divergence.</li>
+          <li class="tip">Appendix 2: export CSV quoting uses JSON.stringify on nicknames for commas safety.</li>
+          <li class="tip">Appendix 3: blitz mode can deselect invalid pairs — always pick fresh bench slots.</li>
+          <li class="tip">Appendix 4: coaching playbook references species by name — regenerate if catalog shifts.</li>
+          <li class="tip">Appendix 5: advantage lattice colors are informational — not accessible alone.</li>
+          <li class="tip">Appendix 6: combine chikn_LIKN digest exports with UI JSON for full snapshots.</li>
+          <li class="tip">Appendix 7: selftest env flag is dev-only — strip from production automation.</li>
+          <li class="tip">Appendix 8: move catalog codes align with MOVE_NAMES mapping in JS and Python.</li>
+          <li class="tip">Appendix 9: training id input uses numeric field — validate parseInt NaN cases.</li>
+          <li class="tip">Appendix 10: entropy textarea accepts partial hex — mixed with crypto randoms.</li>
+        </ol>
+      </section>
